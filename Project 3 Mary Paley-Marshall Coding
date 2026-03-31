@@ -9,3 +9,4 @@ d_serbia = pd.read_csv('Serbia.csv').set_index(['i','t','m'])
 # a DataFrame indexed by (i, t, m) with food categories as columns,
 # values in log expenditures per food item.
 r = cfe.Regression(y=y_panama, d=d_panama)
+hello
