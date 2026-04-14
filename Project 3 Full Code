@@ -1,0 +1,1007 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "dcd79122-2bfb-40bc-aefc-24cc60a20bc0",
+   "metadata": {},
+   "source": [
+    "***Project 3 EEP 153***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "216176e8-d31b-4aa0-8b3b-d1b29ab6b301",
+   "metadata": {},
+   "source": [
+    "**Authors:** Daniel Canales, Amanda Edwards, Christian Gee, Ziton Xu, Chloe Shih"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "da2c9b88-c684-436d-812a-a37d6ece9b65",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\u001b[31mERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'\u001b[0m\u001b[31m\n",
+      "\u001b[0m"
+     ]
+    }
+   ],
+   "source": [
+    "!pip install -r requirements.txt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bcf58088-e40a-4ade-94e5-ef7dc906fa09",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Panama_data = 'https://docs.google.com/spreadsheets/d/1tYmqzz4VqM5rd4aeO6zB4wL9ADcoTdvTPKZF5zgX7a4/edit?gid=1443689638#gid=1443689638'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "733f2e7d-c0cd-4363-b990-8fbaf8c7c6c7",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'ligonlibrary'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mModuleNotFoundError\u001b[39m                       Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[3]\u001b[39m\u001b[32m, line 3\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;28;01mimport\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mpandas\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mas\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mpd\u001b[39;00m \n\u001b[32m      2\u001b[39m \u001b[38;5;28;01mimport\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mnumpy\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mas\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mnp\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m3\u001b[39m \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mligonlibrary\u001b[39;00m\u001b[34;01m.\u001b[39;00m\u001b[34;01msheets\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mimport\u001b[39;00m read_sheets\n",
+      "\u001b[31mModuleNotFoundError\u001b[39m: No module named 'ligonlibrary'"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd \n",
+    "import numpy as np\n",
+    "from ligonlibrary.sheets import read_sheets"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bfbd2a1e-5a88-4d45-8372-ed4c2be67a56",
+   "metadata": {},
+   "source": [
+    "### Sheets to DataFrames (Panama) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "29b0126c-d22a-4421-9556-abb2b4a61955",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = read_sheets(Panama_data, sheet='Food Expenditures (2008)')\n",
+    "p = read_sheets(Panama_data, sheet='Food Prices (2008)')\n",
+    "d = read_sheets(Panama_data, sheet='Household Characteristics')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fe147ed0-1bbf-4273-8df3-92dbb90e53a8",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "x.head()\n",
+    "p.head()\n",
+    "d.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1adbe2b8-7e7e-4d6f-a2ab-02a8ad94de54",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x.head()\n",
+    "x.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "85b457ca-09d0-4ff4-9f78-ca8c1ed5f2ba",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8bffbfdb-89c1-443b-8daf-8ab7360610df",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Convert expenditure data from long to wide\n",
+    "x = x.pivot_table(\n",
+    "    index='i',\n",
+    "    columns='j',\n",
+    "    values='Expenditure',\n",
+    "    aggfunc='sum'\n",
+    ")\n",
+    "\n",
+    "x.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9db85ff7-a2b7-4b6c-afd0-3b71e16127ea",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "d = d.set_index('i')\n",
+    "d.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c491fc77-05b4-471a-99c7-534ff95ae055",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "x = x.replace(0, np.nan)\n",
+    "y = np.log(x)\n",
+    "y.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "2ef9358b-ab10-4a73-a10b-afc64de98541",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "use = y.index.intersection(d.index)\n",
+    "\n",
+    "y = y.loc[use]\n",
+    "d = d.loc[use]\n",
+    "\n",
+    "print(y.shape)\n",
+    "print(d.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9e193152-1082-43cb-a4a4-afad70ba41e5",
+   "metadata": {},
+   "source": [
+    "### Estimation Panama"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "15c2f54a-dd9e-4448-a5d3-df5eef3accfe",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from cfe.estimation import drop_columns_wo_covariance\n",
+    "from cfe import Regression\n",
+    "\n",
+    "x_raw = read_sheets(Panama_data, sheet='Food Expenditures (2008)')\n",
+    "d_raw = read_sheets(Panama_data, sheet='Household Characteristics')\n",
+    "\n",
+    "y = (x_raw.set_index(['i', 't', 'm', 'j'])['Expenditure'].replace(0, np.nan))\n",
+    "y = np.log(y)\n",
+    "\n",
+    "d = d_raw.set_index(['i', 't', 'm'])\n",
+    "\n",
+    "result = Regression(y=y, d=d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a4c943df-8c5e-4fb5-a02b-e54154792505",
+   "metadata": {},
+   "source": [
+    "### Results Panama"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d031025c-e811-4eb0-baab-e3d597dae1c7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "result.get_beta()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e98fc41b-1225-4898-b525-3c1db040f52f",
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "result.get_gamma()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b5466a3a-7716-4a9c-9c37-c00159cf1fb7",
+   "metadata": {},
+   "source": [
+    "### Sheets to Data Frame (Serbia)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b4e789f7-bded-4d70-827c-e44184f71efb",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Serbia_data = 'https://docs.google.com/spreadsheets/d/1GFu5qKhA6kx2Qjadu7Gnr9853FpPcZxpO4QzAbLlWos/edit?gid=353863528#gid=353863528'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b70f90f1-9d70-41da-a797-833546ed6685",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = read_sheets(Serbia_data, sheet='Food Expenditures (2007)')\n",
+    "p = read_sheets(Serbia_data, sheet='Food Prices (2007)')\n",
+    "d = read_sheets(Serbia_data, sheet='Household Characteristics')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "572109eb-acb3-4c9f-a69e-58d8644f91c0",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'x' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[4]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m \u001b[43mx\u001b[49m.head()\n\u001b[32m      2\u001b[39m p.head()\n\u001b[32m      3\u001b[39m d.head()\n",
+      "\u001b[31mNameError\u001b[39m: name 'x' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "x.head()\n",
+    "p.head()\n",
+    "d.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0f03417f-201d-437c-84e4-b9d44ca981d1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x.head()\n",
+    "x.columns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "da0aacd8-9695-4466-a2f2-082e35534831",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = x.pivot_table(\n",
+    "    index='i',\n",
+    "    columns='j',\n",
+    "    values='Expenditure',\n",
+    "    aggfunc='sum'\n",
+    ")\n",
+    "\n",
+    "x.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "34edda38-11c7-487a-82cd-afc05d4e8f1e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "d = d.set_index('i')\n",
+    "d.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "cfcd2ec1-4110-4d1b-a48a-d4638d50c6c9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = x.replace(0, np.nan)\n",
+    "y = np.log(x)\n",
+    "y.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "650acd3b-72a1-4275-9894-7fed3678fec0",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'y' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[5]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m use = \u001b[43my\u001b[49m.index.intersection(d.index)\n\u001b[32m      3\u001b[39m y = y.loc[use]\n\u001b[32m      4\u001b[39m d = d.loc[use]\n",
+      "\u001b[31mNameError\u001b[39m: name 'y' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "use = y.index.intersection(d.index)\n",
+    "\n",
+    "y = y.loc[use]\n",
+    "d = d.loc[use]\n",
+    "\n",
+    "print(y.shape)\n",
+    "print(d.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e4e6e113-1a03-4765-b5ff-d582419264ab",
+   "metadata": {},
+   "source": [
+    "### Estimation Serbia"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7413af71-4e3a-4689-a3d6-382bc2bd4b7a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x_raw = read_sheets(Serbia_data, sheet='Food Expenditures (2007)')\n",
+    "d_raw = read_sheets(Serbia_data, sheet='Household Characteristics')\n",
+    "\n",
+    "y = (x_raw.set_index(['i', 't', 'm', 'j'])['Expenditure'].replace(0, np.nan))\n",
+    "y = np.log(y)\n",
+    "\n",
+    "d = d_raw.set_index(['i', 't', 'm'])\n",
+    "\n",
+    "result = Regression(y=y, d=d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d4d3cfe1-d9d5-4a15-9c95-0c518ed25822",
+   "metadata": {},
+   "source": [
+    "### Results Serbia"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "902e968d-8ef3-4535-9417-59cc5405695e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "result.get_gamma()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "049d18df-a1dc-41dd-8574-6b89082288f8",
+   "metadata": {},
+   "source": [
+    "### Visualizations"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "89188a02-d4c0-4933-8df7-64ee1dfda2b8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "91e96193-e5cc-40fb-ae1a-86e3195136aa",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'gamma_pan' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[6]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m pan_const = \u001b[43mgamma_pan\u001b[49m[\u001b[33m'\u001b[39m\u001b[33mConstant\u001b[39m\u001b[33m'\u001b[39m].dropna().sort_values()\n\u001b[32m      2\u001b[39m ser_const = gamma_ser[\u001b[33m'\u001b[39m\u001b[33mConstant\u001b[39m\u001b[33m'\u001b[39m].dropna().sort_values()\n",
+      "\u001b[31mNameError\u001b[39m: name 'gamma_pan' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "pan_const = gamma_pan['Constant'].dropna().sort_values()\n",
+    "ser_const = gamma_ser['Constant'].dropna().sort_values()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0906b45a-8800-4d51-bbd1-0f94c8cc4d71",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Checking for shared foods in diff languages\n",
+    "shared_foods = pan_const.index.intersection(ser_const.index)\n",
+    "\n",
+    "if len(shared_foods) == 0:\n",
+    "    print(\"No shared food, plot grahps independently\")\n",
+    "    use_shared = False\n",
+    "else:\n",
+    "    print(f\"Found {len(shared_foods)} shared food items\")\n",
+    "    use_shared = True\n",
+    "    combined = pd.DataFrame({\n",
+    "        'Panama': pan_const.loc[shared_foods],\n",
+    "        'Serbia': ser_const.loc[shared_foods]\n",
+    "    }).sort_values('Panama')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3367680b-131e-474c-92af-a4e19992f6a7",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'use_shared' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[7]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m \u001b[43muse_shared\u001b[49m:\n\u001b[32m      2\u001b[39m     fig, ax = plt.subplots(figsize=(\u001b[32m12\u001b[39m, \u001b[38;5;28mmax\u001b[39m(\u001b[32m8\u001b[39m, \u001b[38;5;28mlen\u001b[39m(combined) * \u001b[32m0.4\u001b[39m)))\n\u001b[32m      3\u001b[39m     y_pos = np.arange(\u001b[38;5;28mlen\u001b[39m(combined))\n",
+      "\u001b[31mNameError\u001b[39m: name 'use_shared' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "if use_shared:\n",
+    "    fig, ax = plt.subplots(figsize=(12, max(8, len(combined) * 0.4)))\n",
+    "    y_pos = np.arange(len(combined))\n",
+    "    bar_width = 0.4\n",
+    "\n",
+    "    ax.barh(y_pos + bar_width/2, combined['Panama'], height=bar_width,\n",
+    "            color=['blue' if v >= 0 else 'red' for v in combined['Panama']],\n",
+    "            label='Panama', alpha=0.85)\n",
+    "\n",
+    "    ax.barh(y_pos - bar_width/2, combined['Serbia'], height=bar_width,\n",
+    "            color=['darkblue' if v >= 0 else 'darkred' for v in combined['Serbia']],\n",
+    "            label='Serbia', alpha=0.75)\n",
+    "\n",
+    "    ax.axvline(0, color='black', linewidth=0.8, linestyle='--')\n",
+    "    ax.set_yticks(y_pos)\n",
+    "    ax.set_yticklabels(combined.index, fontsize=9)\n",
+    "    ax.set_xlabel('Budget Elasticity (γ)', fontsize=11)\n",
+    "    ax.set_title('Budget Elasticities by Food Item: Panama vs Serbia\\n'\n",
+    "                 '(Positive = spend more as budget grows | Negative = spend less)',\n",
+    "                 fontsize=13, fontweight='bold')\n",
+    "    ax.legend(fontsize=10)\n",
+    "    ax.grid(axis='x', alpha=0.3)\n",
+    "    plt.tight_layout()\n",
+    "    plt.show()\n",
+    "else:\n",
+    "    print(\"no overlapping food items between countries\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1857b7c7-f7e2-429a-abd4-80889feb4871",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fig, axes = plt.subplots(2, 2, figsize=(16, 10))\n",
+    "fig.suptitle('Top 5 & Bottom 5 Budget Elasticities: Panama vs Serbia',\n",
+    "             fontsize=14, fontweight='bold')\n",
+    "\n",
+    "datasets = [\n",
+    "    (pan_const.nlargest(5),  axes[0, 0], 'Panama – Top 5 (Most Elastic Goods)',   'blue'),\n",
+    "    (pan_const.nsmallest(5), axes[0, 1], 'Panama – Bottom 5 (Least Elastic Goods)', 'red'),\n",
+    "    (ser_const.nlargest(5),  axes[1, 0], 'Serbia – Top 5 (Most Elastic Goods)',    'darkblue'),\n",
+    "    (ser_const.nsmallest(5), axes[1, 1], 'Serbia – Bottom 5 (Least Elastic Goods)', 'darkred'),\n",
+    "]\n",
+    "\n",
+    "for data, ax, title, color in datasets:\n",
+    "    ax.barh(data.index, data.values, color=color, alpha=0.85, edgecolor='white')\n",
+    "    ax.axvline(0, color='black', linewidth=0.8, linestyle='--')\n",
+    "    ax.set_title(title, fontsize=11, fontweight='bold')\n",
+    "    ax.set_xlabel('Budget Elasticity (γ)', fontsize=10)\n",
+    "    ax.tick_params(axis='y', labelsize=9)\n",
+    "    ax.grid(axis='x', alpha=0.3)\n",
+    "\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "cf2f06e1-29c8-45aa-84d2-ae260adfc53e",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'ligonlibrary'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mModuleNotFoundError\u001b[39m                       Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[8]\u001b[39m\u001b[32m, line 4\u001b[39m\n\u001b[32m      2\u001b[39m \u001b[38;5;28;01mimport\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mnumpy\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mas\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mnp\u001b[39;00m\n\u001b[32m      3\u001b[39m \u001b[38;5;28;01mimport\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mre\u001b[39;00m\n\u001b[32m----> \u001b[39m\u001b[32m4\u001b[39m \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01mligonlibrary\u001b[39;00m\u001b[34;01m.\u001b[39;00m\u001b[34;01msheets\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;28;01mimport\u001b[39;00m read_sheets\n\u001b[32m      6\u001b[39m pan_x = read_sheets(Panama_data, sheet=\u001b[33m'\u001b[39m\u001b[33mFood Expenditures (2008)\u001b[39m\u001b[33m'\u001b[39m).copy()\n\u001b[32m      7\u001b[39m pan_p = read_sheets(Panama_data, sheet=\u001b[33m'\u001b[39m\u001b[33mFood Prices (2008)\u001b[39m\u001b[33m'\u001b[39m).copy()\n",
+      "\u001b[31mModuleNotFoundError\u001b[39m: No module named 'ligonlibrary'"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import re\n",
+    "from ligonlibrary.sheets import read_sheets\n",
+    "\n",
+    "pan_x = read_sheets(Panama_data, sheet='Food Expenditures (2008)').copy()\n",
+    "pan_p = read_sheets(Panama_data, sheet='Food Prices (2008)').copy()\n",
+    "pan_d = read_sheets(Panama_data, sheet='Household Characteristics').copy()\n",
+    "\n",
+    "ser_x = read_sheets(Serbia_data, sheet='Food Expenditures (2007)').copy()\n",
+    "ser_p = read_sheets(Serbia_data, sheet='Food Prices (2007)').copy()\n",
+    "ser_d = read_sheets(Serbia_data, sheet='Household Characteristics').copy()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "78d19dfd-a5e9-46b5-80c9-2de83d8f5bfd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CATEGORY_NUTRIENTS = {\n",
+    "    'rice_grains':     {'kcal': 3600, 'protein_g': 70,  'iron_mg': 8},\n",
+    "    'beans_legumes':   {'kcal': 3400, 'protein_g': 220, 'iron_mg': 55},\n",
+    "    'bread_bakery':    {'kcal': 2650, 'protein_g': 90,  'iron_mg': 35},\n",
+    "    'pasta':           {'kcal': 3710, 'protein_g': 130, 'iron_mg': 32},\n",
+    "    'meat_beef':       {'kcal': 2500, 'protein_g': 260, 'iron_mg': 26},\n",
+    "    'meat_pork':       {'kcal': 2700, 'protein_g': 250, 'iron_mg': 12},\n",
+    "    'meat_chicken':    {'kcal': 2390, 'protein_g': 270, 'iron_mg': 13},\n",
+    "    'fish':            {'kcal': 2060, 'protein_g': 220, 'iron_mg': 10},\n",
+    "    'eggs':            {'kcal': 1430, 'protein_g': 126, 'iron_mg': 18},\n",
+    "    'milk_dairy':      {'kcal': 640,  'protein_g': 33,  'iron_mg': 0.4},\n",
+    "    'powdered_milk':   {'kcal': 4960, 'protein_g': 260, 'iron_mg': 2},\n",
+    "    'cheese':          {'kcal': 4000, 'protein_g': 250, 'iron_mg': 7},\n",
+    "    'oil_fat':         {'kcal': 8840, 'protein_g': 0,   'iron_mg': 0},\n",
+    "    'sugar_sweets':    {'kcal': 3870, 'protein_g': 0,   'iron_mg': 0},\n",
+    "    'fruit':           {'kcal': 520,  'protein_g': 6,   'iron_mg': 3},\n",
+    "    'vegetables':      {'kcal': 300,  'protein_g': 15,  'iron_mg': 5},\n",
+    "    'potatoes_roots':  {'kcal': 770,  'protein_g': 20,  'iron_mg': 3},\n",
+    "    'tea_coffee':      {'kcal': 10,   'protein_g': 0,   'iron_mg': 0},\n",
+    "    'other':           {'kcal': 1200, 'protein_g': 30,  'iron_mg': 4},\n",
+    "}\n",
+    "\n",
+    "def normalize_text(s):\n",
+    "    if pd.isna(s):\n",
+    "        return \"\"\n",
+    "    s = str(s).lower()\n",
+    "    replacements = {\n",
+    "        'č':'c','ć':'c','š':'s','ž':'z','đ':'d',\n",
+    "        '`':'', '^':'', '@':'z', '[':'s', ']':'', '}':'', '{':'',\n",
+    "        '~':'c'\n",
+    "    }\n",
+    "    for k, v in replacements.items():\n",
+    "        s = s.replace(k, v)\n",
+    "    return s\n",
+    "\n",
+    "def classify_food(food_name):\n",
+    "    s = normalize_text(food_name)\n",
+    "\n",
+    "    if any(k in s for k in ['arroz', 'rice', 'pirinac', 'grain', 'cereal', 'corn', 'maiz', 'wheat', 'flour', 'brasno']):\n",
+    "        return 'rice_grains'\n",
+    "    if any(k in s for k in ['frijol', 'frijoles', 'bean', 'beans', 'lentil', 'lentils', 'pea', 'peas', 'pasulj', 'legume']):\n",
+    "        return 'beans_legumes'\n",
+    "    if any(k in s for k in ['bread', 'pan ', 'pan de', 'hleb', 'bakery', 'bun', 'biscuit', 'cracker']):\n",
+    "        return 'bread_bakery'\n",
+    "    if any(k in s for k in ['pasta', 'noodle', 'macaroni', 'spaghetti']):\n",
+    "        return 'pasta'\n",
+    "    if any(k in s for k in ['egg', 'eggs', 'huevo', 'huevos', 'jaja', 'jaje']):\n",
+    "        return 'eggs'\n",
+    "    if any(k in s for k in ['milk powder', 'powdered milk', 'leche en polvo']):\n",
+    "        return 'powdered_milk'\n",
+    "    if any(k in s for k in ['milk', 'leche', 'mleko', 'yogurt', 'yoghurt', 'jogurt']):\n",
+    "        return 'milk_dairy'\n",
+    "    if any(k in s for k in ['cheese', 'queso', 'sir']):\n",
+    "        return 'cheese'\n",
+    "    if any(k in s for k in ['beef', 'carne de res', 'res', 'goved', 'veal']):\n",
+    "        return 'meat_beef'\n",
+    "    if any(k in s for k in ['pork', 'svinj', 'ham', 'bacon']):\n",
+    "        return 'meat_pork'\n",
+    "    if any(k in s for k in ['chicken', 'pollo', 'poultry', 'perad', 'zivinsko', 'pile']):\n",
+    "        return 'meat_chicken'\n",
+    "    if any(k in s for k in ['fish', 'fishes', 'pescado', 'pescados', 'riba', 'seafood', 'tuna', 'sardine']):\n",
+    "        return 'fish'\n",
+    "    if any(k in s for k in ['oil', 'aceite', 'margarine', 'butter', 'fat', 'manteca', 'mast']):\n",
+    "        return 'oil_fat'\n",
+    "    if any(k in s for k in ['sugar', 'azucar', 'secer', 'sweets', 'chocolate', 'candy', 'jam', 'honey', 'krem']):\n",
+    "        return 'sugar_sweets'\n",
+    "    if any(k in s for k in ['fruit', 'fruta', 'banana', 'apple', 'orange', 'mango', 'pineapple', 'pear', 'grape', 'melon']):\n",
+    "        return 'fruit'\n",
+    "    if any(k in s for k in ['vegetable', 'verdura', 'tomato', 'onion', 'pepper', 'cabbage', 'spinach', 'lettuce', 'carrot', 'vegetal']):\n",
+    "        return 'vegetables'\n",
+    "    if any(k in s for k in ['potato', 'potatoes', 'papa', 'yuca', 'cassava', 'root', 'roots', 'yam']):\n",
+    "        return 'potatoes_roots'\n",
+    "    if any(k in s for k in ['tea', 'coffee', 'cafe', 'caj', 'chaj']):\n",
+    "        return 'tea_coffee'\n",
+    "\n",
+    "    return 'other'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "c76d0225-1a8f-4e29-8503-73fcbd984c5f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def demographic_requirement_from_col(col_name):\n",
+    "    s = str(col_name).strip().lower()\n",
+    "\n",
+    "    if 'male' in s:\n",
+    "        sex = 'male'\n",
+    "    elif 'female' in s:\n",
+    "        sex = 'female'\n",
+    "    else:\n",
+    "        return None\n",
+    "\n",
+    "    m = re.search(r'(\\d{1,2})\\D+(\\d{1,2})', s)\n",
+    "    if not m:\n",
+    "        return None\n",
+    "\n",
+    "    low = int(m.group(1))\n",
+    "    high = int(m.group(2))\n",
+    "\n",
+    "    if high <= 3:\n",
+    "        req = {'kcal': 1000, 'protein_g': 13, 'iron_mg': 7}\n",
+    "    elif high <= 8:\n",
+    "        req = {'kcal': 1400, 'protein_g': 19, 'iron_mg': 10}\n",
+    "    elif high <= 13:\n",
+    "        req = {'kcal': 1800 if sex == 'male' else 1600, 'protein_g': 34, 'iron_mg': 8}\n",
+    "    elif high <= 18:\n",
+    "        req = {'kcal': 2200 if sex == 'male' else 1800, 'protein_g': 52 if sex == 'male' else 46, 'iron_mg': 11 if sex == 'male' else 15}\n",
+    "    elif high <= 30:\n",
+    "        req = {'kcal': 2400 if sex == 'male' else 2000, 'protein_g': 56 if sex == 'male' else 46, 'iron_mg': 8 if sex == 'male' else 18}\n",
+    "    elif high <= 50:\n",
+    "        req = {'kcal': 2400 if sex == 'male' else 1800, 'protein_g': 56 if sex == 'male' else 46, 'iron_mg': 8 if sex == 'male' else 18}\n",
+    "    else:\n",
+    "        req = {'kcal': 2200 if sex == 'male' else 1800, 'protein_g': 56, 'iron_mg': 8}\n",
+    "\n",
+    "    return req\n",
+    "\n",
+    "def build_household_requirements(d_df):\n",
+    "    d2 = d_df.copy()\n",
+    "    if 'i' in d2.columns:\n",
+    "        d2 = d2.set_index('i')\n",
+    "\n",
+    "    d2['kcal_req'] = 0.0\n",
+    "    d2['protein_req'] = 0.0\n",
+    "    d2['iron_req'] = 0.0\n",
+    "\n",
+    "    matched_demo_cols = []\n",
+    "\n",
+    "    for col in d2.columns:\n",
+    "        req = demographic_requirement_from_col(col)\n",
+    "        if req is not None:\n",
+    "            matched_demo_cols.append(col)\n",
+    "            counts = pd.to_numeric(d2[col], errors='coerce').fillna(0)\n",
+    "            d2['kcal_req'] += counts * req['kcal']\n",
+    "            d2['protein_req'] += counts * req['protein_g']\n",
+    "            d2['iron_req'] += counts * req['iron_mg']\n",
+    "\n",
+    "    return d2, matched_demo_cols"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "33f0e940-dfd1-4df2-99c3-8c777e3a4e38",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def find_price_col(price_df):\n",
+    "    candidates = []\n",
+    "    for c in price_df.columns:\n",
+    "        lc = str(c).lower()\n",
+    "        if c in ['i', 't', 'm', 'j']:\n",
+    "            continue\n",
+    "        if 'price' in lc or 'precio' in lc or 'cost' in lc or 'unit' in lc or 'value' in lc:\n",
+    "            candidates.append(c)\n",
+    "\n",
+    "    numeric_cols = [c for c in price_df.columns if pd.api.types.is_numeric_dtype(price_df[c]) and c not in ['i', 't', 'm']]\n",
+    "\n",
+    "    for c in candidates:\n",
+    "        if c in numeric_cols:\n",
+    "            return c\n",
+    "\n",
+    "    if len(numeric_cols) == 1:\n",
+    "        return numeric_cols[0]\n",
+    "\n",
+    "    if 'j' in numeric_cols and len(numeric_cols) > 1:\n",
+    "        numeric_cols = [c for c in numeric_cols if c != 'j']\n",
+    "\n",
+    "    if len(numeric_cols) >= 1:\n",
+    "        return numeric_cols[0]\n",
+    "\n",
+    "    raise ValueError(\"Could not identify price column automatically.\")\n",
+    "\n",
+    "def nutritional_adequacy_analysis(country_name, x_df, p_df, d_df):\n",
+    "    x_use = x_df.copy()\n",
+    "    p_use = p_df.copy()\n",
+    "    d_use = d_df.copy()\n",
+    "\n",
+    "    if 'Expenditure' not in x_use.columns:\n",
+    "        raise ValueError(f\"{country_name}: expenditure column not found.\")\n",
+    "    if 'j' not in x_use.columns:\n",
+    "        raise ValueError(f\"{country_name}: food-name column 'j' not found.\")\n",
+    "    if 'i' not in x_use.columns:\n",
+    "        raise ValueError(f\"{country_name}: household-id column 'i' not found.\")\n",
+    "\n",
+    "    price_col = find_price_col(p_use)\n",
+    "\n",
+    "    p_small = p_use[['j', price_col]].drop_duplicates('j').rename(columns={price_col: 'price'})\n",
+    "\n",
+    "    food = x_use[['i', 'j', 'Expenditure']].merge(p_small, on='j', how='left')\n",
+    "\n",
+    "    food['price'] = pd.to_numeric(food['price'], errors='coerce')\n",
+    "    food['Expenditure'] = pd.to_numeric(food['Expenditure'], errors='coerce')\n",
+    "    food = food[(food['price'] > 0) & (food['Expenditure'] >= 0)].copy()\n",
+    "\n",
+    "    food['quantity'] = food['Expenditure'] / food['price']\n",
+    "    food['food_category'] = food['j'].apply(classify_food)\n",
+    "\n",
+    "    food['kcal_per_unit'] = food['food_category'].map(lambda c: CATEGORY_NUTRIENTS[c]['kcal'])\n",
+    "    food['protein_g_per_unit'] = food['food_category'].map(lambda c: CATEGORY_NUTRIENTS[c]['protein_g'])\n",
+    "    food['iron_mg_per_unit'] = food['food_category'].map(lambda c: CATEGORY_NUTRIENTS[c]['iron_mg'])\n",
+    "\n",
+    "    food['kcal_intake'] = food['quantity'] * food['kcal_per_unit']\n",
+    "    food['protein_intake'] = food['quantity'] * food['protein_g_per_unit']\n",
+    "    food['iron_intake'] = food['quantity'] * food['iron_mg_per_unit']\n",
+    "\n",
+    "    hh_intake = food.groupby('i')[['kcal_intake', 'protein_intake', 'iron_intake']].sum()\n",
+    "\n",
+    "    hh_req, matched_demo_cols = build_household_requirements(d_use)\n",
+    "\n",
+    "    hh = hh_req.join(hh_intake, how='left')\n",
+    "    hh[['kcal_intake', 'protein_intake', 'iron_intake']] = hh[['kcal_intake', 'protein_intake', 'iron_intake']].fillna(0)\n",
+    "\n",
+    "    hh['kcal_ratio'] = np.where(hh['kcal_req'] > 0, hh['kcal_intake'] / hh['kcal_req'], np.nan)\n",
+    "    hh['protein_ratio'] = np.where(hh['protein_req'] > 0, hh['protein_intake'] / hh['protein_req'], np.nan)\n",
+    "    hh['iron_ratio'] = np.where(hh['iron_req'] > 0, hh['iron_intake'] / hh['iron_req'], np.nan)\n",
+    "\n",
+    "    hh['meets_kcal'] = hh['kcal_ratio'] >= 1\n",
+    "    hh['meets_protein'] = hh['protein_ratio'] >= 1\n",
+    "    hh['meets_iron'] = hh['iron_ratio'] >= 1\n",
+    "    hh['meets_all_selected_nutrients'] = hh[['meets_kcal', 'meets_protein', 'meets_iron']].all(axis=1)\n",
+    "\n",
+    "    category_summary = (\n",
+    "        food.groupby('food_category')[['kcal_intake', 'protein_intake', 'iron_intake']]\n",
+    "        .sum()\n",
+    "        .sort_values('kcal_intake', ascending=False)\n",
+    "    )\n",
+    "\n",
+    "    summary = pd.DataFrame({\n",
+    "        'Country': [country_name],\n",
+    "        'Households': [len(hh)],\n",
+    "        'Proportion meeting calorie recommendation': [hh['meets_kcal'].mean()],\n",
+    "        'Proportion NOT meeting calorie recommendation': [1 - hh['meets_kcal'].mean()],\n",
+    "        'Proportion meeting protein recommendation': [hh['meets_protein'].mean()],\n",
+    "        'Proportion NOT meeting protein recommendation': [1 - hh['meets_protein'].mean()],\n",
+    "        'Proportion meeting iron recommendation': [hh['meets_iron'].mean()],\n",
+    "        'Proportion NOT meeting iron recommendation': [1 - hh['meets_iron'].mean()],\n",
+    "        'Proportion meeting ALL selected recommendations': [hh['meets_all_selected_nutrients'].mean()],\n",
+    "        'Proportion NOT meeting ALL selected recommendations': [1 - hh['meets_all_selected_nutrients'].mean()],\n",
+    "        'Demographic columns used for requirements': [len(matched_demo_cols)]\n",
+    "    })\n",
+    "\n",
+    "    return food, hh, summary, category_summary, matched_demo_cols"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "e602c950-9f3f-4b15-a6e4-b4cae61b9eb6",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'pan_x' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[12]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m pan_food, pan_hh, pan_summary, pan_categories, pan_demo_cols = nutritional_adequacy_analysis(\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m     \u001b[33m'\u001b[39m\u001b[33mPanama\u001b[39m\u001b[33m'\u001b[39m, \u001b[43mpan_x\u001b[49m, pan_p, pan_d\n\u001b[32m      3\u001b[39m )\n\u001b[32m      5\u001b[39m ser_food, ser_hh, ser_summary, ser_categories, ser_demo_cols = nutritional_adequacy_analysis(\n\u001b[32m      6\u001b[39m     \u001b[33m'\u001b[39m\u001b[33mSerbia\u001b[39m\u001b[33m'\u001b[39m, ser_x, ser_p, ser_d\n\u001b[32m      7\u001b[39m )\n\u001b[32m      9\u001b[39m final_summary = pd.concat([pan_summary, ser_summary], ignore_index=\u001b[38;5;28;01mTrue\u001b[39;00m)\n",
+      "\u001b[31mNameError\u001b[39m: name 'pan_x' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "pan_food, pan_hh, pan_summary, pan_categories, pan_demo_cols = nutritional_adequacy_analysis(\n",
+    "    'Panama', pan_x, pan_p, pan_d\n",
+    ")\n",
+    "\n",
+    "ser_food, ser_hh, ser_summary, ser_categories, ser_demo_cols = nutritional_adequacy_analysis(\n",
+    "    'Serbia', ser_x, ser_p, ser_d\n",
+    ")\n",
+    "\n",
+    "final_summary = pd.concat([pan_summary, ser_summary], ignore_index=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "91696d0d-597e-4aea-8b80-6778d4bc2b06",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"B(1) Nutritional content of different foods\")\n",
+    "print(\"Estimated using automatic food-name classification into broad food groups.\")\n",
+    "\n",
+    "print(\"\\nTop nutrient-contributing food categories in Panama:\")\n",
+    "display(pan_categories.head(10))\n",
+    "\n",
+    "print(\"\\nTop nutrient-contributing food categories in Serbia:\")\n",
+    "display(ser_categories.head(10))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c7f389bf-11b2-47a0-987e-1dc51d0fa10e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"B(2) Nutritional adequacy of diet\")\n",
+    "print(\"Household intake compared against inferred household dietary requirements.\")\n",
+    "display(final_summary)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "a0432a22-74ab-4259-9dc8-63da5304603e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Panama demographic columns used:\n"
+     ]
+    },
+    {
+     "ename": "NameError",
+     "evalue": "name 'pan_demo_cols' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mNameError\u001b[39m                                 Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[13]\u001b[39m\u001b[32m, line 2\u001b[39m\n\u001b[32m      1\u001b[39m \u001b[38;5;28mprint\u001b[39m(\u001b[33m\"\u001b[39m\u001b[33mPanama demographic columns used:\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[32m----> \u001b[39m\u001b[32m2\u001b[39m \u001b[38;5;28mprint\u001b[39m(\u001b[43mpan_demo_cols\u001b[49m)\n\u001b[32m      4\u001b[39m \u001b[38;5;28mprint\u001b[39m(\u001b[33m\"\u001b[39m\u001b[38;5;130;01m\\n\u001b[39;00m\u001b[33mSerbia demographic columns used:\u001b[39m\u001b[33m\"\u001b[39m)\n\u001b[32m      5\u001b[39m \u001b[38;5;28mprint\u001b[39m(ser_demo_cols)\n",
+      "\u001b[31mNameError\u001b[39m: name 'pan_demo_cols' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Panama demographic columns used:\")\n",
+    "print(pan_demo_cols)\n",
+    "\n",
+    "print(\"\\nSerbia demographic columns used:\")\n",
+    "print(ser_demo_cols)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "61a11d16-fb1f-4fa4-906e-31a8ff4d3522",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Sample household-level adequacy results: Panama\")\n",
+    "display(\n",
+    "    pan_hh[['kcal_req', 'kcal_intake', 'kcal_ratio',\n",
+    "            'protein_req', 'protein_intake', 'protein_ratio',\n",
+    "            'iron_req', 'iron_intake', 'iron_ratio',\n",
+    "            'meets_all_selected_nutrients']].head(10)\n",
+    ")\n",
+    "\n",
+    "print(\"Sample household-level adequacy results: Serbia\")\n",
+    "display(\n",
+    "    ser_hh[['kcal_req', 'kcal_intake', 'kcal_ratio',\n",
+    "            'protein_req', 'protein_intake', 'protein_ratio',\n",
+    "            'iron_req', 'iron_intake', 'iron_ratio',\n",
+    "            'meets_all_selected_nutrients']].head(10)\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1188e0dd-1ba0-4fe7-a25f-f7eddfb576f9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for country_name, hh in [('Panama', pan_hh), ('Serbia', ser_hh)]:\n",
+    "    print(f\"\\n--- {country_name} ---\")\n",
+    "    print(f\"{hh['meets_kcal'].mean():.2%} of households meet calorie recommendations, while {(1-hh['meets_kcal'].mean()):.2%} do not.\")\n",
+    "    print(f\"{hh['meets_protein'].mean():.2%} of households meet protein recommendations, while {(1-hh['meets_protein'].mean()):.2%} do not.\")\n",
+    "    print(f\"{hh['meets_iron'].mean():.2%} of households meet iron recommendations, while {(1-hh['meets_iron'].mean()):.2%} do not.\")\n",
+    "    print(f\"{hh['meets_all_selected_nutrients'].mean():.2%} of households meet all selected dietary recommendations, while {(1-hh['meets_all_selected_nutrients'].mean()):.2%} do not.\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.14"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
